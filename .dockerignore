@@ -1,0 +1,9 @@
+.git
+.github
+.rollback*
+node_modules
+packages
+tests
+*.diff
+*VERIFICATION.txt
+FUNCTIONALITY-CHANGES.md
