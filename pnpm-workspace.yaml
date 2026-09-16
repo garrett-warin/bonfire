@@ -1,12 +1,9 @@
 packages:
   - packages/core
-  - packages/runway
   - packages/rpc
   - packages/controller
   - packages/utils
-  - packages/demo
   - packages/bootstrap
-  - packages/create-proxy-app
 
 overrides:
   htmlparser2: 12.0.0

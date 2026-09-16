@@ -227,7 +227,6 @@ const runtimekitdir = join(__dirname, "packages/core");
 const controllerdir = join(__dirname, "packages/controller");
 const utilsdir = join(__dirname, "packages/utils");
 const bootstrapdir = join(__dirname, "packages/bootstrap");
-const createproxyappdir = join(__dirname, "packages/create-proxy-app");
 
 const wasmPath = join(runtimekitdir, "dist/runtimekit.wasm");
 let wasmB64: string;
@@ -702,37 +701,6 @@ const bootstrapStaticConfig = createGenericConfig({
   },
 });
 
-const createProxyAppConfig = createGenericConfig({
-  name: "create-proxy-app",
-  entry: {
-    index: join(createproxyappdir, "src/index.ts"),
-  },
-  output: {
-    path: join(createproxyappdir, "dist"),
-    filename: "[name].js",
-    libraryTarget: "module",
-    iife: false,
-  },
-  experiments: {
-    outputModule: true,
-  },
-  target: "node",
-  module: {
-    parser: {
-      javascript: {
-        importMeta: false,
-      },
-    },
-  },
-  plugins: [
-    new rspack.BannerPlugin({
-      banner: "#!/usr/bin/env node",
-      raw: true,
-      entryOnly: true,
-    }),
-  ],
-});
-
 export default [
   iifeConfig,
   iifeBundledConfig,
@@ -744,5 +712,4 @@ export default [
   utilsModuleConfig,
   bootstrapConfig,
   bootstrapStaticConfig,
-  createProxyAppConfig,
 ];
